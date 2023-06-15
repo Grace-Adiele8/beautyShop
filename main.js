@@ -69,12 +69,18 @@ let products = [
 
 let cart = [];
 
-function increaseCart() {
-  console.log("grace");
-  // const item = products.find((product) => product.id === productId);
-  // cart.push(item);
-  // cartAmount.innerText = cart.length;
-}
+// function increaseCart(productId) {
+//   const item = products.find((product) => product.id === productId);
+//   cart.push(item);
+//   cartAmount.innerText = cart.length;
+// }
+
+Window.increaseCart = (productId) => {
+  console.log(productId);
+  const item = products.find((product) => product.id === productId);
+  cart.push(item);
+  cartAmount.innerText = cart.length;
+};
 
 let html = "";
 // document.addEventListener("DOMContentLoaded", () => {
@@ -88,7 +94,7 @@ for (let product of products) {
       </div>
       <div class="product__info">
         <h4 class="product__title">${product.name}</h4>
-        <button href="#" class="btn add-to-cart" id="add-to-cart" onclick="increaseCart()">
+        <button href="#" class="btn add-to-cart" id="add-to-cart" onClick="increaseCart(${product.id})">
         
           + Add To Cart
         </button>
